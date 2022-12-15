@@ -21,7 +21,6 @@ public class PeopleRepositoryTests {
         Person savedPerson =  repo.save(john);
         assertThat(savedPerson.getId()).isGreaterThan(0);
     }
-
     @Test
     public void canSaveTwoPeople(){
         PeopleRepository repo = new PeopleRepository();
