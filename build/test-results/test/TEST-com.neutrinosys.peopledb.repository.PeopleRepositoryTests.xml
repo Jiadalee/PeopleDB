@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.neutrinosys.peopledb.repository.PeopleRepositoryTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-14T06:47:18" hostname="DESKTOP-4CLI4SV" time="0.074">
+  <properties/>
+  <testcase name="canSave()" classname="com.neutrinosys.peopledb.repository.PeopleRepositoryTests" time="0.074"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
