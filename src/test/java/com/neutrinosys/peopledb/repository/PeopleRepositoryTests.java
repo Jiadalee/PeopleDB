@@ -1,6 +1,7 @@
 package com.neutrinosys.peopledb.repository;
 
 import com.neutrinosys.peopledb.model.Person;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,22 +16,30 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class PeopleRepositoryTests {
 
     private Connection connection;
+    private PeopleRepository repo;
 
     @BeforeEach
     void setUp() throws SQLException {
         connection = DriverManager.getConnection("jdbc:h2:~/peopletest".replace("~", System.getProperty("user.home")));
+        connection.setAutoCommit(false);
+        repo = new PeopleRepository(connection);
+    }
+
+    @AfterEach
+    void tearDown() throws SQLException {
+        if (connection != null) {
+            connection.close();
+        }
     }
 
     @Test
     public void canSaveOnePerson() throws SQLException {
-        PeopleRepository repo = new PeopleRepository(connection);
         Person john  = new Person("John", "Smith", ZonedDateTime.of(1980, 11, 15, 15, 15, 0, 0, ZoneId.of("-6")));
         Person savedPerson =  repo.save(john);
         assertThat(savedPerson.getId()).isGreaterThan(0);
     }
     @Test
     public void canSaveTwoPeople() throws SQLException {
-        PeopleRepository repo = new PeopleRepository(connection);
         Person john  = new Person("John", "Smith", ZonedDateTime.of(1980, 11, 15, 15, 15, 0, 0, ZoneId.of("-6")));
         Person bobby  = new Person("Bobby", "Smith", ZonedDateTime.of(1970, 9, 15, 10, 11, 0, 0, ZoneId.of("-6")));
         Person savedPerson1 =  repo.save(john);
