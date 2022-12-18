@@ -47,4 +47,18 @@ public class PeopleRepositoryTests {
         assertThat(savedPerson1.getId()).isNotEqualTo(savedPerson2.getId());
         //assertThat(savedPerson1.getId()).isGreaterThan(0);
     }
+
+    @Test
+    public void canFindPersonById() throws SQLException {
+        Person savedPerson =  repo.save(new Person("test", "jackson", ZonedDateTime.now()));
+        Person foundPerson = repo.findById(savedPerson.getId());
+        assertThat(foundPerson).isEqualTo(savedPerson);
+    }
+
+
 }
+
+
+
+
+

@@ -1,6 +1,2 @@
-OPerson{id=48, firstName='John', lastName='Smith', dob=1980-11-15T15:15-06:00}
+kPerson{id=59, firstName='test', lastName='jackson', dob=2022-12-18T00:29:39.973016-07:00[America/Denver]}
 Records affected: 1
-PPerson{id=49, firstName='Bobby', lastName='Smith', dob=1970-09-15T10:11-06:00}
-Records affected: 1
-OPerson{id=50, firstName='John', lastName='Smith', dob=1980-11-15T15:15-06:00}
-Records affected: 1
