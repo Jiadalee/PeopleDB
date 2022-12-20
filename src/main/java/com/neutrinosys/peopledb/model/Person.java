@@ -2,8 +2,6 @@ package com.neutrinosys.peopledb.model;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.time.chrono.ChronoLocalDate;
-import java.time.chrono.ChronoZonedDateTime;
 import java.util.Objects;
 
 public class Person {
@@ -12,8 +10,9 @@ public class Person {
     private String lastName;
     private ZonedDateTime dob;
 
-
-    public Person(String firstName, String lastName, ZonedDateTime dob) {
+    //constructor for the class
+    public Person(long id, String firstName, String lastName, ZonedDateTime dob) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dob = dob;
